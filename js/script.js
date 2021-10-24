@@ -1,4 +1,19 @@
 
+const cats = [
+    {
+        name: "Blob",
+        age: 10
+    },
+    {
+        name: "Harold",
+
+    },
+    {
+        name: "Blurt",
+        age: 21
+    }
+
+];
 
 
 //Question 1: 
@@ -94,12 +109,14 @@ resultsContainer.innerHTML ="<p> New paragraph </p>"
 
 
 
-//function animal(){
+function animal(list){
 
-   // for (var i = 0; i < cats.name.length; i++);{
-      //  console.log(cats.name[i])
-    //}
-//}
+   for( let i = 0; i < list.length; i++){
+         console.log(list[i].name)
+    }
+}
+
+animal(cats)
 
 
 //Question 8:
@@ -115,25 +132,32 @@ resultsContainer.innerHTML ="<p> New paragraph </p>"
 
 //answer 8:
 
-const cats = [
-    {
-        name: "Blob",
-        age: 10
-    },
-    {
-        name: "Harold",
-    },
-    {
-        name: "Blurt",
-        age: 21
-    }
-    
-];
 
 function createCats(cats){
-    for (var i = 0; i < cats.length; i++){
-        var cat = cats[i];
-        console.log(cat);
+    
+
+    let catsList = "";
+    for( let i = 0; i < cats.length; i++){
+
+        if (cats[i].age != undefined){
+            
+            console.log("Age undefined")
+        }
+
+
+        catsList = catsList + "<li>" + cats[i].name +":" + cats[i].age + "</li>"
     }
+
+    const html = "<ul>" + catsList + "</ul>";
+
+    return html;
+
+   
 }
 
+const newhtml = createCats(cats);
+
+console.log(newhtml);
+
+ const container = document.querySelector(".cat-container")
+container.innerHTML = newhtml;
